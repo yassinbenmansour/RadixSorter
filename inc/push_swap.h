@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:11:29 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/22 23:30:51 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/23 03:26:09 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ typedef struct s_stacks
     char    *join_args;   
 }           t_stacks;
 
-static void check_args(int ac, char **av);
+void free_and_exit_with_message(t_stacks *s, char *msg);
+void init_stacks(int ac, char **av,t_stacks *s);
+
 
 #endif
  

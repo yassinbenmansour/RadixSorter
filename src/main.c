@@ -6,13 +6,13 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:24:07 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/23 02:51:31 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/23 03:31:36 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static void free_and_exit_with_message(t_stacks *s, char *msg)
+void free_and_exit_with_message(t_stacks *s, char *msg)
 {
     if(msg)
         write(2,msg,ft_strlen(msg));
@@ -64,5 +64,5 @@ int main(int ac , char **av)
     s = malloc(sizeof *s);
     if(s == NULL)
         exit(1);
-    
+    init_stacks(ac,av,s);
 }
