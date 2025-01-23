@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:24:07 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/22 23:58:55 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/23 02:51:31 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,24 @@ static void check_args(int ac, char **av)
     int i;
     int j;
     if(ac < 2)
-    {
         free_and_exit_with_message(NULL,"");
+    while(++i < ac)
+    {
+        j = 0;
+        if(av[i][0] == '\0' || (av[i][0] && av[i][0] == ' '))
+            free_and_exit_with_message(NULL,"Error\n");
+        while (av[i][j] != '\0')
+        {
+            if ((!(ft_isdigit(av[i][j])) && (av[i][j] != ' ')
+                    && (av[i][j] != '-' && av[i][j] != '+'
+                        && av[i][j] != ' ')) || (av[i][j] == '-'
+                    && av[i][j + 1] == '\0') || (av[i][j] == '+'
+                    && av[i][j + 1] == '\0') || (av[i][j] == '-'
+                    && av[i][j + 1] == ' ') || (av[i][j] == '+' && av[i][j
+                    + 1] == ' '))
+                free_and_exit_with_message(NULL, "Error\n");
+            j++;
+        }
     }
 }
 
@@ -45,4 +61,8 @@ int main(int ac , char **av)
     t_stacks *s;
     
     check_args(ac,av);
+    s = malloc(sizeof *s);
+    if(s == NULL)
+        exit(1);
+    
 }

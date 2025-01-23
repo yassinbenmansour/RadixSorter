@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/yabenman/Desktop/push_swap/src",
+      "program": "/Users/yabenman/Desktop/push_swap/src/build/Debug/outDebug"
+    }
+  ]
+}
