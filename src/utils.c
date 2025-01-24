@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 03:32:23 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/24 07:38:14 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/24 08:04:50 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,27 @@ int ft_atol(const char *n , t_stacks *s)
 {
     int i;
     long sign;
-    long long res;    
+    long long res;
+    i = 0;
+    sign = 1;
+    res = 0;
+
+    while(n[i] == ' ' || ( n[i] >= 9 && n[i] <= 13))
+        i++;
+    if(n[i] == '+' || n[i] == '-')
+    {
+        if(n[i] == '-')
+            sign = -1;
+        i++;
+    }
+    
+    while(n[i])
+    {
+        if(res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(n) > 11)
+            free_and_exit_with_message(s,"Error\n");
+        if(!(n[i] >= '0' && n[i] <= '9'))
+            free_and_exit_with_message(s,"Error\n");
+        res = res * 10 + (n[i++] - '0');
+    }
+    return ((int)(res * sign));
 }
