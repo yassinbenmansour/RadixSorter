@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 03:32:23 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/23 07:18:23 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/24 07:38:14 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,27 @@ void init_stacks(int ac, char **av,t_stacks *s)
         free_and_exit_with_message(s,"Error\n");
 }
 
+
+void parse_numbers(t_stacks *s)
+{
+    char **tmp;
+    int i;
+    int j;
+    
+    i = 0;
+    tmp = ft_split(s->join_args, ' ');
+    j = 0;
+    while (tmp[i] != NULL && tmp[i][0] != '\0')
+    {
+        s->a[j++] = ft_atol(tmp[i++], s);
+        free(tmp[i - 1]);
+    }
+    free(tmp);
+}
+
+int ft_atol(const char *n , t_stacks *s)
+{
+    int i;
+    long sign;
+    long long res;    
+}

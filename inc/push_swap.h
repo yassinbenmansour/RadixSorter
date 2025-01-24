@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:11:29 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/23 07:32:32 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/24 07:34:12 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_stacks
 
 void free_and_exit_with_message(t_stacks *s, char *msg);
 void init_stacks(int ac, char **av,t_stacks *s);
+void parse_numbers(t_stacks *s);
+int ft_atol(const char *n , t_stacks *s);
 
 
 #endif

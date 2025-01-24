@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:24:07 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/23 07:32:44 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/24 07:25:39 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,34 @@ static void check_args(int ac, char **av)
     }
 }
 
+static void join_args(int ac , char **av, t_stacks *s)
+{
+    char *tmp1;
+    char *tmp2;
+    int i;
+    
+    i = 0;
+    tmp2 = ft_strdup("");
+    while(++i < ac && av[i] != NULL)
+    {
+        tmp1  = ft_strjoin(tmp2, av[i]);
+        if(tmp2)
+            free(tmp2);
+        if(i != ac - 1)
+        {
+            tmp2 = ft_strjoin(tmp1," ");
+            if(tmp1)
+                free(tmp1);
+            tmp1 = tmp2;
+        }
+    }
+    s->join_args = ft_strdup(tmp1);
+    if(s->join_args == NULL)
+        free_and_exit_with_message(s,"Error\n");
+    if(tmp1)
+        free(tmp1);
+}
+
 int main(int ac , char **av)
 {
     t_stacks *s;
@@ -65,4 +93,6 @@ int main(int ac , char **av)
     if(s == NULL)
         exit(1);
     init_stacks(ac,av,s);
+    join_args(ac,av,s);
+    parse_numbers(s);
 }
