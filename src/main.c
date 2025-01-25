@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:24:07 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/25 02:42:54 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/25 03:56:40 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,5 @@ int main(int ac , char **av)
     join_args(ac,av,s);
     parse_numbers(s);
     exit_if_sorted_or_has_duplicated(s,0);
+    create_index(s);
 }

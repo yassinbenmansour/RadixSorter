@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 03:32:23 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/24 23:37:19 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/25 05:13:26 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,4 +123,32 @@ void exit_if_sorted_or_has_duplicated(t_stacks *s, int i)
     }
     if(is_array_sorted(s))
         free_and_exit_with_message(s,NULL);
+}
+
+void create_index(t_stacks *s)
+{
+    int i;
+    int j;
+    int k;
+    int *new_a;
+
+    new_a = malloc(s->a_size * sizeof * new_a);
+    if(new_a == NULL)
+        free_and_exit_with_message(s,"Error\n");
+    i = -1;
+    while(++i < s->a_size)
+    {
+        j = -1;
+        k = 0;
+        while(++j < s->a_size)
+            if(s->a[i] > s->a[j])
+                k++;
+        new_a[i] = k;
+    }
+    i = s->a_size;
+    while(i--)
+    {
+        s->a[i] = new_a[i];
+    }
+    free(new_a);
 }
