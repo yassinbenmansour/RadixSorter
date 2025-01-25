@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 03:32:23 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/24 08:04:50 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/24 23:37:19 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,27 @@ int ft_atol(const char *n , t_stacks *s)
         res = res * 10 + (n[i++] - '0');
     }
     return ((int)(res * sign));
+}
+
+
+void exit_if_sorted_or_has_duplicated(t_stacks *s, int i)
+{
+    int j;
+    j = 0;
+    if(i == 0)
+    {
+        while(i < s->a_size)
+        {
+            j = i + 1;
+            while(j < s->a_size)
+            {
+                if(s->a[i] == s->a[j])
+                    free_and_exit_with_message(s,"Error\n");
+                j++;
+            }
+            i++;
+        }
+    }
+    if(is_array_sorted(s))
+        free_and_exit_with_message(s,NULL);
 }

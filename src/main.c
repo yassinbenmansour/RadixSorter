@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:24:07 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/24 07:25:39 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/25 02:42:54 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void check_args(int ac, char **av)
 {
     int i;
     int j;
+    i= 0;
     if(ac < 2)
         free_and_exit_with_message(NULL,"");
     while(++i < ac)
@@ -95,4 +96,5 @@ int main(int ac , char **av)
     init_stacks(ac,av,s);
     join_args(ac,av,s);
     parse_numbers(s);
+    exit_if_sorted_or_has_duplicated(s,0);
 }
