@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:24:07 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/25 03:56:40 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/26 06:50:25 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,15 @@ int main(int ac , char **av)
     parse_numbers(s);
     exit_if_sorted_or_has_duplicated(s,0);
     create_index(s);
+    if(s->a_size == 2 && s->a[0] > s->a[1])
+        swap("sa",s->a, s->a_size);
+    else if(s->a_size == 3)
+         sort_three_elements(s);
+    else if(s->a_size >= 4 && s->a_size <= 5)
+         sort_four_five_elements(s);
+    //else 
+    //     radix_sort(s);
+    exit_if_sorted_or_has_duplicated(s,1);
+    free_and_exit_with_message(s,"Error\n");
+    return 0;
 }

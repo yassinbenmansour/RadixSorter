@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 23:37:15 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/25 02:36:17 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/26 04:53:04 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,35 @@ int is_array_sorted(t_stacks *s)
     }
     return (1);
 }
+
+void sort_three_elements(t_stacks *s)
+{
+    if(s->a[2] != 2)
+    {
+        if(s->a[0] == 2)
+            rotate(s->a, s->a_size,"up","a");
+        else
+            rotate(s->a, s->a_size,"down","a");
+    }
+    if(s->a[0] > s->a[1])
+        swap("sa",s->a, s->a_size);
+}
+
+void sort_four_five_elements(t_stacks *s)
+{
+    while(s->b_size <= 1)
+    {
+        if(s->a[0] == 0 || s->a[0] == 1)
+            push("pb",s);
+        else 
+            rotate(s->a, s->a_size,"up","a");
+    }
+    if(s->b[0] == 0)
+        swap("sb",s->b, s->b_size);
+    
+}
+
+// void radix_sort(t_stacks *s)
+// {
+    
+// }

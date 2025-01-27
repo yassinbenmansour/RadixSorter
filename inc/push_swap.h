@@ -6,7 +6,7 @@
 /*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 23:11:29 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/25 04:07:16 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/01/26 04:47:45 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,12 @@ void parse_numbers(t_stacks *s);
 int ft_atol(const char *n , t_stacks *s);
 void exit_if_sorted_or_has_duplicated(t_stacks *s, int i);
 int is_array_sorted(t_stacks *s);
+void sort_three_elements(t_stacks *s);
+void sort_four_five_elements(t_stacks *s);
+// void radix_sort(t_stacks *s);
 void create_index(t_stacks *s);
-
+void swap(char *str,int *array, int size);
+void rotate(int *array, int size, char *direction, char *list);
 
 #endif
  

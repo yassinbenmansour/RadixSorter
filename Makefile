@@ -6,7 +6,7 @@
 #    By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 23:37:27 by yabenman          #+#    #+#              #
-#    Updated: 2025/01/25 02:24:51 by yabenman         ###   ########.fr        #
+#    Updated: 2025/01/26 00:18:38 by yabenman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = libft
 LIBFT = ./libft/libft.a
 RM = rm -rf
-SRCS = utils.c sort.c main.c
+SRCS = utils.c sort.c main.c move.c
 SRC =  $(addprefix ./src/,$(SRCS))
 OBJ = $(SRC:.c=.o)
 
