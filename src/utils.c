@@ -139,7 +139,7 @@ int	ft_atol(const char *n, t_stacks *s)
 	}
 	while (n[i])
 	{
-		if (res > 2147483647 || (res * sign) < -2147483648 || ft_strlen(n) > 11)
+		if (res > 2147483647 || (res * sign) < -2147483648)
 			free_and_exit_with_message(s, "Error\n");
 		if (!(n[i] >= '0' && n[i] <= '9'))
 			free_and_exit_with_message(s, "Error\n");

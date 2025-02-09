@@ -42,8 +42,13 @@ static void	validate_arguments(int argc, char **argv)
 	while (++i < argc)
 	{
 		j = 0;
-		if (!argv[i][0] || (argv[i][0] && argv[i][0] == ' '))
-			free_and_exit_with_message(NULL, "Error\n");
+		while (argv[i][j] == ' ')
+            j++;
+
+		if (argv[i][j] == '\0') 
+            free_and_exit_with_message(NULL, "Error\n");
+
+		
 		while (argv[i][j] != '\0')
 		{
 			if ((!(ft_isdigit(argv[i][j])) && (argv[i][j] != ' ')
