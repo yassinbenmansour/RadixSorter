@@ -30,42 +30,39 @@ void	free_and_exit_with_message(t_stacks *s, char *msg)
 	exit(1);
 }
 
-static	void check(char *str, int j)
+static void	check(char *str, int j)
 {
-    if ((!(ft_isdigit(str[j])) && (str[j] != ' ')
-            && (str[j] != '-' && str[j] != '+'
-            && str[j] != ' ')) || (str[j] == '-'
-            && str[j + 1] == '\0') || (str[j] == '+'
-            && str[j + 1] == '\0') || (str[j] == '-'
-            && str[j + 1] == ' ') || (str[j] == '+' && str[j + 1] == ' '))
-    {
-        free_and_exit_with_message(NULL, "Error\n");
-    }
+	if ((!(ft_isdigit(str[j])) && (str[j] != ' ') && (str[j] != '-'
+				&& str[j] != '+' && str[j] != ' ')) || (str[j] == '-' && str[j
+			+ 1] == '\0') || (str[j] == '+' && str[j + 1] == '\0')
+		|| (str[j] == '-' && str[j + 1] == ' ') || (str[j] == '+' && str[j
+			+ 1] == ' '))
+	{
+		free_and_exit_with_message(NULL, "Error\n");
+	}
 }
 
 static void	validate_arguments(int argc, char **argv)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    if (argc < 2)
-        free_and_exit_with_message(NULL, "");
-
-    while (++i < argc)
-    {
-        j = 0;
-        while (argv[i][j] == ' ')
-            j++;
-        if (argv[i][j] == '\0')
-            free_and_exit_with_message(NULL, "Error\n");
-
-        while (argv[i][j] != '\0')
-        {
-            check(argv[i], j);
-            j++;
-        }
-    }
+	i = 0;
+	if (argc < 2)
+		free_and_exit_with_message(NULL, "");
+	while (++i < argc)
+	{
+		j = 0;
+		while (argv[i][j] == ' ')
+			j++;
+		if (argv[i][j] == '\0')
+			free_and_exit_with_message(NULL, "Error\n");
+		while (argv[i][j] != '\0')
+		{
+			check(argv[i], j);
+			j++;
+		}
+	}
 }
 
 static void	join_args(int argc, char **argv, t_stacks *s)

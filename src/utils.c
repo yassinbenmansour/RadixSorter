@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../inc/push_swap.h"
 
 void	exit_if_sorted_or_has_duplicate(t_stacks *s, int i)
@@ -53,23 +52,23 @@ void	parse_numbers(t_stacks *s)
 	free(tmp);
 }
 
-int ft_count_words(char const *s, char c)
+int	ft_count_words(char const *s, char c)
 {
-    int wc;
-    
-    wc = 0;
-    while(*s)
-    {
-        if(*s != c)
-        {
-            wc++;
-            while(*s != c && *s)
-                s++;
-        }
-        else
-            s++;
-    }
-    return wc;
+	int	wc;
+
+	wc = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			wc++;
+			while (*s != c && *s)
+				s++;
+		}
+		else
+			s++;
+	}
+	return (wc);
 }
 void	initialize_stacks(int argc, char **argv, t_stacks *s)
 {
@@ -86,22 +85,22 @@ void	initialize_stacks(int argc, char **argv, t_stacks *s)
 			s->a_size++;
 		i++;
 	}
-	s->a = malloc(s->a_size * sizeof * s->a);
+	s->a = malloc(s->a_size * sizeof *s->a);
 	if (s->a == NULL)
 		free_and_exit_with_message(s, "Error\n");
-	s->b = malloc(s->a_size * sizeof * s->b);
+	s->b = malloc(s->a_size * sizeof *s->b);
 	if (s->b == NULL)
 		free_and_exit_with_message(s, "Error\n");
 }
 
 void	create_index(t_stacks *s)
 {
-	int		i;
-	int		j;
-	int		k;
-	int		*new_a;
+	int	i;
+	int	j;
+	int	k;
+	int	*new_a;
 
-	new_a = malloc(s->a_size * sizeof * new_a);
+	new_a = malloc(s->a_size * sizeof *new_a);
 	if (new_a == NULL)
 		free_and_exit_with_message(s, "Error\n");
 	i = -1;
@@ -139,11 +138,11 @@ int	ft_atol(const char *n, t_stacks *s)
 	}
 	while (n[i])
 	{
-		if (res > 2147483647 || (res * sign) < -2147483648)
-			free_and_exit_with_message(s, "Error\n");
 		if (!(n[i] >= '0' && n[i] <= '9'))
 			free_and_exit_with_message(s, "Error\n");
 		res = res * 10 + (n[i++] - '0');
+		if (res > 2147483647 || (res * sign) < -2147483648)
+			free_and_exit_with_message(s, "Error\n");
 	}
 	return ((int)(res * sign));
 }
