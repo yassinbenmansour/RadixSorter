@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+         #
+#    By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/24 23:37:27 by yabenman          #+#    #+#              #
-#    Updated: 2025/01/27 13:11:00 by yabenman         ###   ########.fr        #
+#    Updated: 2025/02/11 20:47:55 by yabenman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -O3 -g3
 LIBFT_DIR = libft
 LIBFT = ./libft/libft.a
 RM = rm -rf
@@ -25,13 +25,13 @@ all : $(LIBFT) $(NAME)
 	@echo "Done!"
 
 $(LIBFT):
-	@make -s -C $(LIBFT_DIR)
+	make -s -C $(LIBFT_DIR)
 
 $(NAME): $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./$(LIBFT_DIR) -lft
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./$(LIBFT_DIR) -lft
 
 $(OBJ): $(SRC)
-	@$(CC) $(CFLAGS) -c $? -I./$(LIBFT_DIR)
+	$(CC) $(CFLAGS) -c $? -I./$(LIBFT_DIR)
 	@mv *.o src
 
 clean: 

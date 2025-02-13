@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:10:28 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/27 13:10:44 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/02/10 23:01:11 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ typedef struct s_stacks
 {
 	int		*a;
 	int		*b;
+	char	*join_args;
 	int		a_size;
 	int		b_size;
-	char	*join_args;
 }			t_stacks;
 
 void		rotate(int *array, int size, char *direction, char *list);

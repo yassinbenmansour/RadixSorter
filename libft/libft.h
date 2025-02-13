@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 06:50:11 by yabenman          #+#    #+#             */
-/*   Updated: 2024/11/02 05:40:40 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/02/10 22:24:05 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "../inc/push_swap.h"
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -50,5 +51,6 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_count_words(char const *s, char c);
 
 #endif

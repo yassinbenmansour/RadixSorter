@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 04:07:37 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/27 13:10:55 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:54:20 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,6 @@ void	parse_numbers(t_stacks *s)
 	free(tmp);
 }
 
-int	ft_count_words(char const *s, char c)
-{
-	int	wc;
-
-	wc = 0;
-	while (*s)
-	{
-		if (*s != c)
-		{
-			wc++;
-			while (*s != c && *s)
-				s++;
-		}
-		else
-			s++;
-	}
-	return (wc);
-}
 void	initialize_stacks(int argc, char **argv, t_stacks *s)
 {
 	int	i;
@@ -85,10 +67,10 @@ void	initialize_stacks(int argc, char **argv, t_stacks *s)
 			s->a_size++;
 		i++;
 	}
-	s->a = malloc(s->a_size * sizeof *s->a);
+	s->a = malloc(s->a_size * sizeof(*s->a));
 	if (s->a == NULL)
 		free_and_exit_with_message(s, "Error\n");
-	s->b = malloc(s->a_size * sizeof *s->b);
+	s->b = malloc(s->a_size * sizeof(*s->b));
 	if (s->b == NULL)
 		free_and_exit_with_message(s, "Error\n");
 }
@@ -100,7 +82,7 @@ void	create_index(t_stacks *s)
 	int	k;
 	int	*new_a;
 
-	new_a = malloc(s->a_size * sizeof *new_a);
+	new_a = malloc(s->a_size * sizeof(*new_a));
 	if (new_a == NULL)
 		free_and_exit_with_message(s, "Error\n");
 	i = -1;
@@ -117,32 +99,4 @@ void	create_index(t_stacks *s)
 	while (i--)
 		s->a[i] = new_a[i];
 	free(new_a);
-}
-
-int	ft_atol(const char *n, t_stacks *s)
-{
-	int			i;
-	long		sign;
-	long long	res;
-
-	res = 0;
-	sign = 1;
-	i = 0;
-	while (n[i] == ' ' || (n[i] >= '\t' && n[i] <= '\r'))
-		i++;
-	if ((n[i] == '+' || n[i] == '-'))
-	{
-		if (n[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (n[i])
-	{
-		if (!(n[i] >= '0' && n[i] <= '9'))
-			free_and_exit_with_message(s, "Error\n");
-		res = res * 10 + (n[i++] - '0');
-		if (res > 2147483647 || (res * sign) < -2147483648)
-			free_and_exit_with_message(s, "Error\n");
-	}
-	return ((int)(res * sign));
 }

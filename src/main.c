@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 04:07:24 by yabenman          #+#    #+#             */
-/*   Updated: 2025/01/27 13:10:47 by yabenman         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:53:26 by yabenman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
 
 void	free_and_exit_with_message(t_stacks *s, char *msg)
 {
@@ -27,19 +28,18 @@ void	free_and_exit_with_message(t_stacks *s, char *msg)
 		if (s != NULL)
 			free(s);
 	}
-	exit(1);
+	exit(EXIT_SUCCESS);
 }
 
 static void	check(char *str, int j)
 {
-	if ((!(ft_isdigit(str[j])) && (str[j] != ' ') && (str[j] != '-'
-				&& str[j] != '+' && str[j] != ' ')) || (str[j] == '-' && str[j
-			+ 1] == '\0') || (str[j] == '+' && str[j + 1] == '\0')
-		|| (str[j] == '-' && str[j + 1] == ' ') || (str[j] == '+' && str[j
-			+ 1] == ' '))
-	{
+	if ((!(ft_isdigit(str[j])) && (str[j] != ' ') 
+			&& (str[j] != '-' && str[j] != '+')) 
+		|| (str[j] == '-' && str[j + 1] == '\0') 
+		|| (str[j] == '+' && str[j + 1] == '\0') 
+		|| (str[j] == '-' && str[j + 1] == ' ') 
+		|| (str[j] == '+' && str[j + 1] == ' '))
 		free_and_exit_with_message(NULL, "Error\n");
-	}
 }
 
 static void	validate_arguments(int argc, char **argv)
@@ -98,9 +98,9 @@ int	main(int argc, char **argv)
 	t_stacks	*s;
 
 	validate_arguments(argc, argv);
-	s = malloc(sizeof *s);
+	s = malloc(sizeof(*s));
 	if (s == NULL)
-		exit(1);
+		return (EXIT_FAILURE);
 	initialize_stacks(argc, argv, s);
 	join_args(argc, argv, s);
 	parse_numbers(s);
@@ -116,5 +116,5 @@ int	main(int argc, char **argv)
 		radix_sort(s);
 	exit_if_sorted_or_has_duplicate(s, 1);
 	free_and_exit_with_message(s, "Error\n");
-	return (0);
+	return (EXIT_SUCCESS);
 }

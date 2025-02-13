@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yabenman <yabenman@student.1337.ma>        +#+  +:+       +#+         #
+#    By: yabenman <yabenman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/31 06:50:23 by yabenman          #+#    #+#              #
-#    Updated: 2024/11/02 22:30:16 by yabenman         ###   ########.fr        #
+#    Updated: 2025/02/10 22:19:39 by yabenman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,8 @@ SRC =		ft_isalpha.c\
 			ft_striteri.c\
 			ft_strncmp.c\
 			ft_strmapi.c\
+			ft_atol.c\
+			ft_count_word.c\
 
 
 OBJ = $(SRC:%.c=%.o)
